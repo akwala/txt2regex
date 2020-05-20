@@ -50,6 +50,36 @@ All tests must always be successful. The CI will refuse changes that break tests
 
 - Do some manual testing to make sure the interactive usage is ok
 
+## Releasing
+
+- Make sure all the tests are passing (see previous topic)
+
+- Make sure the manual page contents is up-to-date with the current code and regenerate it with `make doc`
+  - Also update the date at the top to the release date
+
+- Make sure the Changelog is up-to-date, containing all the relevant changes since the last released version
+
+- In the `TODO` file, is there anything to be added/removed?
+
+- In the `README.md` file, is there anything to be added/removed?
+
+- Update the `po/*.{po,pot}` files to match the current code: run `make po` and commit
+
+- Create the official release commit:
+
+  - Update the version number in `txt2regex.sh` and `Makefile`
+  - Update the version number and creation date in the potfile: `make pot`
+  - Update the changelog with the version number and release date
+  - Commit
+  - Tag this commit with the version number
+
+- Publish the release: `git push && git push --tags`
+
+- Get back to the development version:
+  - Update the version number in `txt2regex.sh` and `Makefile`
+    - Use `version+1` and add the `b` suffix (for beta)
+  - Create a new "unreleased" entry in the changelog
+
 ## History rewrite
 
 In 2020-05-19 the whole Git history for this repository was rewritten. It was necessary to set the correct date for the initial commits, so they reflect the official release date for the releases.
