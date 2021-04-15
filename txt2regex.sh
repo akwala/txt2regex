@@ -444,6 +444,7 @@ posix_re=(
 )
 
 # Title (line 1)
+# shellcheck disable=SC2256
 tit1_txt=(
     $"quit"
     $"reset"
@@ -761,6 +762,7 @@ ShowInfo() {
     )"
 
     # Populating cool i18n arrays
+  # shellcheck disable=SC2256
     txt=(
         $"program"
         $"metas"
@@ -1233,6 +1235,7 @@ showRegex() {
     local save="$uin"
 
     # For each program
+  # shellcheck disable=SC2086
     for ((i = 0; i < ${#progs[@]}; i++)); do
         [ "$F_ESCCHAR" == 1 ] && escChar $i
         [ "$F_ESCCHARLIST" == 1 ] && escCharList $i
